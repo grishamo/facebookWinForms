@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
+    //Main entry point
     static class Program
     {
         /// <summary>
