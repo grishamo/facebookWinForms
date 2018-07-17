@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.FbLogin = new System.Windows.Forms.Button();
-            this.LikesList = new System.Windows.Forms.ListBox();
+            this.NewsList = new System.Windows.Forms.ListBox();
+            this.FbLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FbLogin
@@ -42,20 +43,31 @@
             this.FbLogin.UseVisualStyleBackColor = true;
             this.FbLogin.Click += new System.EventHandler(this.FbLogin_Click);
             // 
-            // LikesList
+            // NewsList
             // 
-            this.LikesList.FormattingEnabled = true;
-            this.LikesList.Location = new System.Drawing.Point(35, 95);
-            this.LikesList.Name = "LikesList";
-            this.LikesList.Size = new System.Drawing.Size(309, 264);
-            this.LikesList.TabIndex = 1;
+            this.NewsList.FormattingEnabled = true;
+            this.NewsList.Location = new System.Drawing.Point(35, 95);
+            this.NewsList.Name = "NewsList";
+            this.NewsList.Size = new System.Drawing.Size(309, 264);
+            this.NewsList.TabIndex = 1;
+            // 
+            // FbLogout
+            // 
+            this.FbLogout.Location = new System.Drawing.Point(387, 26);
+            this.FbLogout.Name = "FbLogout";
+            this.FbLogout.Size = new System.Drawing.Size(134, 23);
+            this.FbLogout.TabIndex = 2;
+            this.FbLogout.Text = "Facebook Logout";
+            this.FbLogout.UseVisualStyleBackColor = true;
+            this.FbLogout.Click += new System.EventHandler(this.FbLogout_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 467);
-            this.Controls.Add(this.LikesList);
+            this.Controls.Add(this.FbLogout);
+            this.Controls.Add(this.NewsList);
             this.Controls.Add(this.FbLogin);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -66,7 +78,8 @@
         #endregion
 
         private System.Windows.Forms.Button FbLogin;
-        private System.Windows.Forms.ListBox LikesList;
+        private System.Windows.Forms.ListBox NewsList;
+        private System.Windows.Forms.Button FbLogout;
     }
 }
 
