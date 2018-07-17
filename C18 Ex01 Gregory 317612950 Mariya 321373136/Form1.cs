@@ -69,6 +69,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                 m_ApplicationSettings.AccessToken = result.AccessToken;
 
                 List<INewsArticle> news = m_News.GetNewsArticles();
+                EventsApi.Get("https://www.facebook.com/search/events/?q=tel%20aviv%20events");
                 fetchNewsList(news);
             }
             else
