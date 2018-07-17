@@ -20,29 +20,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         /// <summary>
         ///  private CTOR as part as the singltone pattern
         /// </summary>
-        private ApplicationSettings()
-        {
-        }
-
-        /// <summary>
-        /// Static reference to the single instance
-        /// </summary>
-        private static ApplicationSettings s_This;
-        /// <summary>
-        /// Public static accsess point to the single instance (includig JIT creation)
-        /// </summary>
-        public static ApplicationSettings Instance
-        {
-            get
-            {
-                if (s_This == null)
-                {
-                    s_This = ApplicationSettings.FromFileOrDefault();
-                }
-
-                return s_This;
-            }
-        }
+        private ApplicationSettings(){}
 
         /// C# 3.0 feature: Automatic Properties
         public bool AutoLogin { get; set; }

@@ -13,9 +13,14 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
     public partial class Form1 : Form
     {
         private User m_LoggedInUser;
+        private ApplicationSettings m_ApplicationSettings = Singelton<ApplicationSettings>.Instance;
+        private NewsApiFactory m_NewsApiFactory = Singelton<NewsApiFactory>.Instance;
+        private INews m_News;
 
         public Form1()
         {
+            // News api can be from the diffrent provider
+            m_News = m_NewsApiFactory.Create("newsapi");
             InitializeComponent();
         }
 
@@ -23,7 +28,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         {
             base.OnShown(e);
 
-            if (ApplicationSettings.Instance.AutoLogin)
+            if (m_ApplicationSettings.AutoLogin)
             {
                 autoLogin();
             }
@@ -31,7 +36,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         private void autoLogin()
         {
-            LoginResult result = FacebookService.Connect(ApplicationSettings.Instance.AccessToken);
+            LoginResult result = FacebookService.Connect(m_ApplicationSettings.AccessToken);
             if (string.IsNullOrEmpty(result.ErrorMessage))
             {
                 m_LoggedInUser = result.LoggedInUser;
@@ -41,13 +46,16 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         private void loginAndInit()
         {
             /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
-            /// You can then save the result.AccessToken for future auto-connect to this user:
-            LoginResult result = FacebookService.Login("229133017717072",
+            /// You can then save the result.AccessToken for future auto-connect to this user: 
+            /// 229133017717072
+            LoginResult result = FacebookService.Login("1450160541956417",
                 "public_profile",
                 "user_friends",
                 "groups_access_member_info",
                 "user_likes",
-                "user_location"
+                "user_tagged_places",
+                "user_location",
+                "user_events"
                 );
             // These are NOT the complete list of permissions. Other permissions for example:
             // "user_birthday", "user_education_history", "user_hometown", "user_likes","user_location","user_relationships","user_relationship_details","user_religion_politics", "user_videos", "user_website", "user_work_history", "email","read_insights","rsvp_event","manage_pages"
@@ -58,9 +66,9 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
                 m_LoggedInUser = result.LoggedInUser;
-                ApplicationSettings.Instance.AccessToken = result.AccessToken;
+                m_ApplicationSettings.AccessToken = result.AccessToken;
 
-                List<Article> news = NewsApi.Instance.GetNewsContent();
+                List<INewsArticle> news = m_News.GetNewsArticles();
                 fetchNewsList(news);
             }
             else
@@ -69,9 +77,9 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             }
         }
 
-        private void fetchNewsList(List<Article> i_ItemNews)
+        private void fetchNewsList(List<INewsArticle> i_ItemNews)
         {
-            foreach(Article newsItem in i_ItemNews)
+            foreach(INewsArticle newsItem in i_ItemNews)
             {
                 NewsList.Items.Add(newsItem.title);
             }
@@ -84,11 +92,8 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         private void FbLogout_Click(object sender, EventArgs e)
         {
-            FacebookService.Logout(LogoutCallback);
+            FacebookService.Logout(null);
         }
-
-
-        public Action LogoutCallback { get; private set; }
     }
     
 

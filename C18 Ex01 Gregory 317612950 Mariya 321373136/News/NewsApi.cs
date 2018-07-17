@@ -9,38 +9,18 @@ using System.Threading;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
-    public class NewsApi
+    public class NewsApi : INews
     {
-        private static readonly object rs_GoogleNewsKey = new object();
-        private static NewsApi s_This;
         private readonly string m_ApiKey = "29eddc60ce2c40f3adcb1f6168422c6c";
         string culture = CultureInfo.CurrentCulture.DisplayName;
         CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
 
-        private NewsApi() {}
-
-        public static NewsApi Instance
-        {
-            get {
-
-                if (s_This == null)
-                {
-                    lock (rs_GoogleNewsKey)
-                    {
-                        if (s_This == null)
-                        {
-                            s_This = new NewsApi();
-                        }
-                    }
-                }
-
-                return s_This;
-            }
-        }
-
-        public List<Article> GetNewsContent(string i_UrlParameters = "")
+        public List<INewsArticle> GetNewsArticles(string i_UrlParameters = "")
         {
             List<Article> articles = new List<Article>();
+            List<INewsArticle> returnArticles;
+
+            //List<Article> articles = new List<Article>();
             HttpWebResponse response = null;
             string requestUrl = buildRequestUrl(i_UrlParameters);
 
@@ -81,7 +61,8 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                 //TODO Handle request exception 
             }
 
-            return articles;
+            returnArticles = articles.ConvertAll(item => item as INewsArticle);
+            return returnArticles;
         }
 
         private string buildRequestUrl(string i_UrlParameters)
@@ -94,23 +75,24 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
             return url;
         }
+
+        private class ItemNews
+        {
+            public string status { get; set; }
+            public int totalResults { get; set; }
+            public List<Article> articles = new List<Article>();
+        }
+
+        private class Article : INewsArticle
+        {
+            public string author { get; set; }
+            public string title { get; set; }
+            public string description { get; set; }
+            public string url { get; set; }
+
+        }
+
     }
 
-
-    public class ItemNews
-    {
-        public string status { get; set; }
-        public int totalResults { get; set; }
-        public List<Article> articles = new List<Article>();
-    }
-
-    public class Article
-    {
-        public string author { get; set; }
-        public string title { get; set; }
-        public string description { get; set; }
-        public string url { get; set; }
-
-    }
 
 }
