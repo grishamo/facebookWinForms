@@ -23,7 +23,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                             Type instanceType = typeof(T);
 
                             // Invoke private constructor of T
-                            //s_Instance = instanceType.Assembly.CreateInstance(instanceType.Name, true) as T;
+                            //s_Instance = instanceType.Assembly.CreateInstance(null, false) as T;
                             s_Instance = instanceType.GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null).Invoke(null) as T;
                         }
                     }

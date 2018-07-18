@@ -1,6 +1,6 @@
 ﻿namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
-    partial class Form1
+    partial class MainApplicationForm
     {
         /// <summary>
         /// Required designer variable.

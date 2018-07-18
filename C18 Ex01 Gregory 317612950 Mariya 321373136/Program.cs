@@ -15,7 +15,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainApplicationForm());
         }
     }
 }
