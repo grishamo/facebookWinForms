@@ -76,8 +76,8 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             // The sort of the items is important
             // it effects on they appearance
             Widgets.Add(commonPlaces);
-            Widgets.Add(userPlaces);
             Widgets.Add(friendsList);
+            Widgets.Add(userPlaces);
 
             // Add All Widgets to Container
             foreach (Widget widget in Widgets)
