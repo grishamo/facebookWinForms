@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ApplicationSettings.cs" />
     <Compile Include="ApplicationBuilder.cs" />
+    <Compile Include="Grid.cs" />
     <Compile Include="WidgetControls\CommonPlaces.cs">
       <SubType>UserControl</SubType>
     </Compile>

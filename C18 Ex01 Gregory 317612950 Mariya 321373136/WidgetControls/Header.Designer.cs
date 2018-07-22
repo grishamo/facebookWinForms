@@ -42,7 +42,7 @@
             this.UserName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.UserName.AutoSize = true;
             this.UserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.UserName.Location = new System.Drawing.Point(727, 21);
+            this.UserName.Location = new System.Drawing.Point(661, 21);
             this.UserName.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(0, 13);
@@ -56,14 +56,14 @@
             this.Logo.Location = new System.Drawing.Point(20, 21);
             this.Logo.Margin = new System.Windows.Forms.Padding(20, 5, 0, 0);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(124, 18);
+            this.Logo.Size = new System.Drawing.Size(116, 18);
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
             // 
             // userPic
             // 
             this.userPic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.userPic.Location = new System.Drawing.Point(732, 10);
+            this.userPic.Location = new System.Drawing.Point(666, 10);
             this.userPic.Margin = new System.Windows.Forms.Padding(0);
             this.userPic.Name = "userPic";
             this.userPic.Size = new System.Drawing.Size(34, 34);
@@ -73,10 +73,11 @@
             // 
             // HeaderPanel
             // 
-            this.HeaderPanel.ColumnCount = 3;
+            this.HeaderPanel.ColumnCount = 4;
             this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.4918F));
             this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.50819F));
-            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.HeaderPanel.Controls.Add(this.UserName, 1, 0);
             this.HeaderPanel.Controls.Add(this.userPic, 2, 0);
             this.HeaderPanel.Controls.Add(this.Logo, 0, 0);

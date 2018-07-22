@@ -17,7 +17,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         public UserPlaces()
         {
             WidgetName = "UserPlaces";
-            Title.Text = "Your Places";
+            WidgetTitle = "Your Places";
             AutoSize = true;
             MaximumSize = new Size(0, 390);
 
@@ -33,7 +33,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             }
             set
             {
-                Title.Text = value + "'s Places";
+                WidgetTitle = value + "'s Places";
             }
         }
 
@@ -52,7 +52,6 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                 displayPlaces(m_allCategories);
             }
         }
-
 
         public virtual void UpdatePlaces(object i_FbUser, object i_FbUser2)
         {
@@ -136,9 +135,9 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             for (int i = 0; i < 10; i++)
             {
                 Place mockPage = new Place(
-                "https://scontent.fsdv2-1.fna.fbcdn.net/v/t1.0-1/p200x200/10526090_1500996420186296_4590947557162620097_n.png?_nc_cat=0&oh=a8eb815a522407ac3b176068ab31d283&oe=5BD0BB9F",
-                "FREEDOM",
-                "https://www.facebook.com/freedombarjerusalem/");
+                "https://scontent.fsdv2-1.fna.fbcdn.net/v/t1.0-1/564764_420623054627489_1533284902_n.jpg?_nc_cat=0&oh=9d9f67fcda93d4636ae35864461d2e4b&oe=5C107377",
+                "Shaker",
+                "https://www.facebook.com/Shaker-239039062785890/");
 
                 mockCategory2.AddPlace(mockPage);
                 allCategories.Add(mockCategory2);

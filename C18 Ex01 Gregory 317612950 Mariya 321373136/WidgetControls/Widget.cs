@@ -10,6 +10,17 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         public List<EventHandler> WidgetEvents = new List<EventHandler>();
 
         public string WidgetName{ get; set; }
+        public string WidgetTitle
+        {
+            get
+            {
+                return Title.Text;
+            }
+            set
+            {
+                Title.Text = value;
+            }
+        }
 
         public Widget()
         {

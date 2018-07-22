@@ -23,15 +23,15 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         public void Init()
         {
-            Grid = BuildGrid("Main", "Header");
-            BuildHeader(Grid["Header"]);
-            BuildWidgets(Grid["Main"]);
+            Grid = BuildGrid("MainContainer", "HeaderContainer");
+            BuildHeader(Grid["HeaderContainer"]);
+            BuildWidgets(Grid["MainContainer"]);
         }
 
         public void Update(User i_LogedInUser)
         {
-            UpdateWidgets(i_LogedInUser);
             UpdateHeader(i_LogedInUser);
+            UpdateWidgets(i_LogedInUser);
         }
 
         public void Display()
@@ -76,8 +76,8 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             // The sort of the items is important
             // it effects on they appearance
             Widgets.Add(commonPlaces);
-            Widgets.Add(friendsList);
             Widgets.Add(userPlaces);
+            Widgets.Add(friendsList);
 
             // Add All Widgets to Container
             foreach (Widget widget in Widgets)

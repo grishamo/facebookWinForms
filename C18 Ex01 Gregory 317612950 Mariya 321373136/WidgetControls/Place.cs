@@ -6,7 +6,6 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
     public partial class Place : UserControl
     {
-        private string m_Name;
         private string m_Url;
         private Page m_FbPage;
 

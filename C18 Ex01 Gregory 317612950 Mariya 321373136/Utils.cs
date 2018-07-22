@@ -23,7 +23,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             return returnInstance;
         }
 
-        public static List<T> GeAllParams<T>(object[] args)
+        public static List<T> GetAllParams<T>(object[] args)
         {
             List<T> paramsList = new List<T>();
 

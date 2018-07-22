@@ -13,13 +13,11 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         public CommonPlaces()
         {
             WidgetName = "CommonPlaces";
-            Title.Text = "Common Visited Places";
-            //AutoSize = true;
+            WidgetTitle = "Common Places";
+
             WidgetContainer.BorderStyle = BorderStyle.None;
             WidgetContainer.BackColor = Color.White;
-            //WidgetContainer.MaximumSize = new Size(1000, 200);
 
-            //AutoSize = true;
             MinimumSize = new Size(0, 230);
             MaximumSize = new Size(0, 230);
 
@@ -29,7 +27,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         public override void Update(params object[] args)
         {
-            List<User> fbUsers = Utils.GeAllParams<User>(args);
+            List<User> fbUsers = Utils.GetAllParams<User>(args);
 
             // Get Common places with a friend
             // UseCase: after clicking on friend list item
@@ -37,6 +35,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             {
                 User fbUser = fbUsers[0];
                 User fbUser2 = fbUsers[1];
+                WidgetTitle = "Common Places with " + fbUser2;
 
                 m_CommonPlaces = buildCommonPlaces(fbUser, fbUser2);
             }

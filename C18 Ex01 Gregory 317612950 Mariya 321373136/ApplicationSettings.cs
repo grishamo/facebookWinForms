@@ -21,13 +21,20 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         ///  private CTOR as part as the singltone pattern
         /// </summary>
         private ApplicationSettings(){
-            AutoLogin = false;
-            LastWindowSize = new Size(870, 740);
-            LastWindowState = FormWindowState.Normal;
+            try
+            {
+                FromFileOrDefault();
+            }
+            catch(Exception e)
+            {
+                
+            }
         }
 
         /// C# 3.0 feature: Automatic Properties
         public bool AutoLogin { get; set; }
+        public string FbAppId { get; set; }
+        public string FbAppIdTest { get; set; }
         public Size LastWindowSize { get; set; }
         public FormWindowState LastWindowState { get; set; }
         public Point LastWindowLocation { get; set; }
@@ -42,7 +49,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             }
         }
 
-        public static ApplicationSettings FromFileOrDefault()
+        private void FromFileOrDefault()
         {
             ApplicationSettings loadedThis = null;
 
@@ -54,18 +61,13 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                     loadedThis = (ApplicationSettings)serializer.Deserialize(stream);
                 }
             }
-            else
-            {
-                /// C# 3.0 feature: Object Initializer
-                loadedThis = new ApplicationSettings()
-                {
-                    AutoLogin = false,
-                    LastWindowSize = new Size(870, 740),
-                    LastWindowState = FormWindowState.Normal
-                };
-            }
 
-            return loadedThis;
-        }
+            AutoLogin = loadedThis != null && loadedThis.AccessToken != null;
+            AccessToken = loadedThis != null && loadedThis.AccessToken != null ? loadedThis.AccessToken : null;
+            LastWindowSize = loadedThis != null ?  loadedThis.LastWindowSize : new Size(870, 740);
+            LastWindowState = loadedThis != null ? loadedThis.LastWindowState : FormWindowState.Normal;
+            FbAppId = "1450160541956417";  //Desig Patter         
+            FbAppIdTest = "229133017717072";  //  Gri@Mash    
+        }   
     }
 }
