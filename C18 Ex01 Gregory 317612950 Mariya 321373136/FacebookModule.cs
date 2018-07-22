@@ -10,16 +10,17 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
     public class FacebookModule
     {
         private ApplicationSettings m_ApplicationSettings;
-        private User m_LoggedInUser;
         private string m_AppId = "1450160541956417"; //229133017717072
         private string m_Permissions = string.Format(
 @"public_profile, 
 user_friends,
 groups_access_member_info,
-user_likes, 
+user_checkins, 
 user_tagged_places, 
 user_location, 
 user_events");
+
+        public User LogedInUser { get; set; }
 
         public FacebookModule(ApplicationSettings i_ApplicationSettings)
         {
@@ -31,7 +32,7 @@ user_events");
             LoginResult result = FacebookService.Connect(m_ApplicationSettings.AccessToken);
             if (string.IsNullOrEmpty(result.ErrorMessage))
             {
-                m_LoggedInUser = result.LoggedInUser;
+                LogedInUser = result.LoggedInUser;
             }
 
         }
@@ -53,7 +54,7 @@ user_events");
             }
 
 
-            m_LoggedInUser = result.LoggedInUser;
+            LogedInUser = result.LoggedInUser;
             m_ApplicationSettings.AccessToken = result.AccessToken;
 
         }

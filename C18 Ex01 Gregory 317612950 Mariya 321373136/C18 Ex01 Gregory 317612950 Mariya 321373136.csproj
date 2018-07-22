@@ -53,7 +53,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationSettings.cs" />
+    <Compile Include="ApplicationBuilder.cs" />
+    <Compile Include="WidgetControls\CommonPlaces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\Place.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\Place.Designer.cs">
+      <DependentUpon>Place.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetControls\PlaceCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\PlaceCategory.Designer.cs">
+      <DependentUpon>PlaceCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IWidget.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="WidgetControls\FriendsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\UserPlaces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\Widget.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\Widget.Designer.cs">
+      <DependentUpon>Widget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WidgetControls\FriendsListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\FriendsListItem.Designer.cs">
+      <DependentUpon>FriendsListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FacebookModule.cs" />
+    <Compile Include="WidgetControls\Header.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WidgetControls\Header.Designer.cs">
+      <DependentUpon>Header.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrlRequest.cs" />
     <Compile Include="MainApplicationForm.cs">
       <SubType>Form</SubType>
@@ -61,13 +103,29 @@
     <Compile Include="MainApplicationForm.Designer.cs">
       <DependentUpon>MainApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="News\INews.cs" />
-    <Compile Include="News\INewsArticle.cs" />
-    <Compile Include="News\NewsApi.cs" />
-    <Compile Include="News\NewsApiFactory.cs" />
+    <Compile Include="NewsApi\INews.cs" />
+    <Compile Include="NewsApi\INewsArticle.cs" />
+    <Compile Include="NewsApi\NewsApi.cs" />
+    <Compile Include="NewsApi\NewsApiFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singelton.cs" />
+    <Compile Include="Widgets.cs" />
+    <EmbeddedResource Include="WidgetControls\Place.resx">
+      <DependentUpon>Place.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WidgetControls\PlaceCategory.resx">
+      <DependentUpon>PlaceCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WidgetControls\Widget.resx">
+      <DependentUpon>Widget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WidgetControls\FriendsListItem.resx">
+      <DependentUpon>FriendsListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WidgetControls\Header.resx">
+      <DependentUpon>Header.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainApplicationForm.resx">
       <DependentUpon>MainApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +150,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

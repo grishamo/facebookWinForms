@@ -20,7 +20,11 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         /// <summary>
         ///  private CTOR as part as the singltone pattern
         /// </summary>
-        private ApplicationSettings(){}
+        private ApplicationSettings(){
+            AutoLogin = false;
+            LastWindowSize = new Size(870, 740);
+            LastWindowState = FormWindowState.Normal;
+        }
 
         /// C# 3.0 feature: Automatic Properties
         public bool AutoLogin { get; set; }
@@ -56,7 +60,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                 loadedThis = new ApplicationSettings()
                 {
                     AutoLogin = false,
-                    LastWindowSize = new Size(800, 500),
+                    LastWindowSize = new Size(870, 740),
                     LastWindowState = FormWindowState.Normal
                 };
             }
