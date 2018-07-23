@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.ComponentModel;
+using FacebookWrapper;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
@@ -20,7 +20,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             AppIdComboBox.Items.Add(m_ApplicationSettings.FbAppIdTest);
 
             // Initiate Application
-            m_ApplicationBuilder.Init();
+            m_ApplicationBuilder.Init(FbLogout_Click);
 
             // Add grid to form
             Controls.Add(m_ApplicationBuilder.Grid["MainContainer"]);
@@ -52,6 +52,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                 }
                 catch(Exception exception)
                 {
+                    MessageBox.Show(exception.Message);
                     //FbLogin_Click(null, null);
                 }
             }
@@ -64,7 +65,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
                 m_FacebookModule.loginAndInit();
                 StartApplication();
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
@@ -78,11 +79,18 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         }
 
         // TODO: move logout to Header
-        private void FbLogout_Click(object sender, EventArgs e)
+        public void FbLogout_Click(object sender, EventArgs e)
         {
             m_FacebookModule.Logout(null);
+            m_ApplicationBuilder.LogOut();
+            SignIn.Visible = true;
         }
 
+        private void AppIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object selectedItem = AppIdComboBox.SelectedItem;
+            m_ApplicationSettings.FbAppId = selectedItem.ToString();
+        }
     }
     
 

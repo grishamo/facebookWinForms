@@ -37,6 +37,5 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
             return paramsList;
         }
-
     }
 }

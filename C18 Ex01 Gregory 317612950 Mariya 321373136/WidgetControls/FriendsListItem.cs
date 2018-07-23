@@ -44,18 +44,18 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             set{ Userpic.Load(value); }
         }
 
-        private void FriendItem_Click(object sender, EventArgs e)
-        {
-            // Delegate the event to the caller
-            OnUserClicked?.Invoke(FriendInfo, e);
-        }
-
         public void AddOnClickEvents(List<EventHandler> i_WidgetActions)
         {
             foreach(EventHandler eventHandler in i_WidgetActions)
             {
                 OnUserClicked += eventHandler;
             }
+        }
+
+        private void FriendItem_Click(object sender, EventArgs e)
+        {
+            // Delegate the event to the caller
+            OnUserClicked?.Invoke(FriendInfo, e);
         }
 
         private void FriendListItem_MouseEnter(object sender, EventArgs e)

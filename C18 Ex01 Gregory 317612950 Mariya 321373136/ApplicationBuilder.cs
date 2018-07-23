@@ -1,9 +1,6 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
@@ -21,16 +18,22 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             m_ApplicationSettings = i_ApplicationSettings;
         }
 
-        public void Init()
+        public void Init(EventHandler i_OnLogOutClick = null)
         {
             Grid = BuildGrid("MainContainer", "HeaderContainer");
-            BuildHeader(Grid["HeaderContainer"]);
+            BuildHeader(Grid["HeaderContainer"], i_OnLogOutClick);
             BuildWidgets(Grid["MainContainer"]);
+        }
+
+        public void LogOut()
+        {
+            Grid["MainContainer"].Visible = false;
+            ClearWidgetsContainer();
         }
 
         public void Update(User i_LogedInUser)
         {
-            UpdateHeader(i_LogedInUser);
+            Header.Update(i_LogedInUser);
             UpdateWidgets(i_LogedInUser);
         }
 
@@ -39,6 +42,14 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             foreach (KeyValuePair<string, Control> control in Grid)
             {
                 control.Value.Visible = true;
+            }
+        }
+
+        private void ClearWidgetsContainer()
+        {
+            foreach (Widget widget in Widgets)
+            {
+                widget.ClearWidgetContainer();
             }
         }
 
@@ -51,10 +62,11 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         }
 
-        private void BuildHeader(Control i_Container)
+        private void BuildHeader(Control i_Container, EventHandler OnFbLogoutClick = null)
         {
             Header = new Header();
             Header.Dock = DockStyle.Top;
+            Header.OnLogoutClick += OnFbLogoutClick;
             i_Container.Controls.Add(Header);
         }
 
@@ -105,13 +117,6 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             grid.Add(i_Header, headerContainer);
 
             return grid;
-        }
-
-        private void UpdateHeader(User i_LogedInUser)
-        {
-            User FbUser = i_LogedInUser;
-            Header.Username = FbUser.Name;
-            Header.UserPic = FbUser.PictureSqaureURL;
         }
     }
 }

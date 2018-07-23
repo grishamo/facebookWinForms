@@ -82,6 +82,7 @@
             this.AppIdComboBox.Name = "AppIdComboBox";
             this.AppIdComboBox.Size = new System.Drawing.Size(121, 21);
             this.AppIdComboBox.TabIndex = 9;
+            this.AppIdComboBox.SelectedIndexChanged += new System.EventHandler(this.AppIdComboBox_SelectedIndexChanged);
             // 
             // MainText
             // 

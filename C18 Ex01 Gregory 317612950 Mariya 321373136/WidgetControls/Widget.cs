@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
@@ -29,14 +28,23 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         public abstract void Update(params object[] str);
 
-        protected void ClearWidgetContainer<T>(List<T> i_Controlls)
+        protected void ClearWidgetContainer<T>(List<T> i_Controlls = null)
         {
-            foreach (T item in i_Controlls)
+            if (i_Controlls != null)
             {
-                Control control = item as Control;
-                WidgetContainer.Controls.Remove(control);
-                control.Dispose();
+                foreach (T item in i_Controlls)
+                {
+                    Control control = item as Control;
+                    WidgetContainer.Controls.Remove(control);
+                    control.Dispose();
+                }
             }
+
+        }
+
+        public void ClearWidgetContainer()
+        {
+            WidgetContainer.Controls.Clear();
         }
 
     }

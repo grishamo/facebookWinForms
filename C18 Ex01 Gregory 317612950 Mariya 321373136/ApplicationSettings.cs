@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
-using System.Drawing;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
@@ -27,7 +24,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             }
             catch(Exception e)
             {
-                
+                //handle exception
             }
         }
 
@@ -35,9 +32,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         public bool AutoLogin { get; set; }
         public string FbAppId { get; set; }
         public string FbAppIdTest { get; set; }
-        public Size LastWindowSize { get; set; }
         public FormWindowState LastWindowState { get; set; }
-        public Point LastWindowLocation { get; set; }
         public string AccessToken { get; set; }
 
         public void Save()
@@ -63,9 +58,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             }
 
             AutoLogin = loadedThis != null && loadedThis.AccessToken != null;
-            AccessToken = loadedThis != null && loadedThis.AccessToken != null ? loadedThis.AccessToken : null;
-            LastWindowSize = loadedThis != null ?  loadedThis.LastWindowSize : new Size(870, 740);
-            LastWindowState = loadedThis != null ? loadedThis.LastWindowState : FormWindowState.Normal;
+            AccessToken = null;// loadedThis != null && loadedThis.AccessToken != null ? loadedThis.AccessToken
             FbAppId = "1450160541956417";  //Desig Patter         
             FbAppIdTest = "229133017717072";  //  Gri@Mash    
         }   

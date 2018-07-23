@@ -27,34 +27,19 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         public override void Update(params object[] args)
         {
-            List<User> fbUsers = Utils.GetAllParams<User>(args);
+            FbUser = Utils.GetParam<User>(args) as User;
 
-            // Get Common places with a friend
-            // UseCase: after clicking on friend list item
-            if (fbUsers.Count == 2) 
-            {
-                User fbUser = fbUsers[0];
-                User fbUser2 = fbUsers[1];
-                WidgetTitle = "Common Places with " + fbUser2;
-
-                m_CommonPlaces = buildCommonPlaces(fbUser, fbUser2);
-            }
-            // Get Common places with all your friends
-            else if (fbUsers.Count == 1)
-            {
-                FbUser = fbUsers[0];
-                FacebookObjectCollection<User> friends = FbUser.Friends;
-                m_CommonPlaces = buildCommonFiendsPlaces(FbUser, friends);
-            }
+            FacebookObjectCollection<User> friends = FbUser.Friends;
+            m_CommonPlaces = buildCommonFiendsPlaces(FbUser, friends);
 
             displayPlaces(m_CommonPlaces);
-
         }
 
         public override void UpdatePlaces(object i_FbFriend, object e)
         {
             User friend = i_FbFriend as User;
             ClearWidgetContainer(m_CommonPlaces);
+            WidgetTitle = "Common Places With " + friend.FirstName;
 
             m_CommonPlaces = buildCommonPlaces(FbUser, friend);
             displayPlaces(m_CommonPlaces);

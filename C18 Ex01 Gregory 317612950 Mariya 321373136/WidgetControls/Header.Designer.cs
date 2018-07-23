@@ -32,6 +32,7 @@
             this.Logo = new System.Windows.Forms.PictureBox();
             this.userPic = new System.Windows.Forms.PictureBox();
             this.HeaderPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.LogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPic)).BeginInit();
             this.HeaderPanel.SuspendLayout();
@@ -42,7 +43,7 @@
             this.UserName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.UserName.AutoSize = true;
             this.UserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.UserName.Location = new System.Drawing.Point(661, 21);
+            this.UserName.Location = new System.Drawing.Point(660, 21);
             this.UserName.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(0, 13);
@@ -63,7 +64,7 @@
             // userPic
             // 
             this.userPic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.userPic.Location = new System.Drawing.Point(666, 10);
+            this.userPic.Location = new System.Drawing.Point(665, 10);
             this.userPic.Margin = new System.Windows.Forms.Padding(0);
             this.userPic.Name = "userPic";
             this.userPic.Size = new System.Drawing.Size(34, 34);
@@ -76,11 +77,12 @@
             this.HeaderPanel.ColumnCount = 4;
             this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.4918F));
             this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.50819F));
-            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.HeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.HeaderPanel.Controls.Add(this.UserName, 1, 0);
-            this.HeaderPanel.Controls.Add(this.userPic, 2, 0);
             this.HeaderPanel.Controls.Add(this.Logo, 0, 0);
+            this.HeaderPanel.Controls.Add(this.LogOut, 3, 0);
+            this.HeaderPanel.Controls.Add(this.userPic, 2, 0);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.HeaderPanel.Name = "HeaderPanel";
@@ -89,6 +91,18 @@
             this.HeaderPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
             this.HeaderPanel.Size = new System.Drawing.Size(782, 55);
             this.HeaderPanel.TabIndex = 4;
+            // 
+            // LogOut
+            // 
+            this.LogOut.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LogOut.Location = new System.Drawing.Point(715, 16);
+            this.LogOut.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.LogOut.Name = "LogOut";
+            this.LogOut.Size = new System.Drawing.Size(58, 23);
+            this.LogOut.TabIndex = 3;
+            this.LogOut.Text = "Logout";
+            this.LogOut.UseVisualStyleBackColor = true;
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
             // 
             // Header
             // 
@@ -114,5 +128,6 @@
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.PictureBox userPic;
         private System.Windows.Forms.TableLayoutPanel HeaderPanel;
+        private System.Windows.Forms.Button LogOut;
     }
 }
