@@ -2,32 +2,31 @@
 using System.Windows.Forms;
 using System.ComponentModel;
 using FacebookWrapper;
+using System.Collections.Generic;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
     public partial class MainApplicationForm : Form
     {
         private static ApplicationSettings m_ApplicationSettings = Singelton<ApplicationSettings>.Instance;
+        private static ApplicationFactory m_ApplicationFactory = Singelton<ApplicationFactory>.Instance;
         private FacebookModule m_FacebookModule = new FacebookModule(m_ApplicationSettings);
-        private ApplicationBuilder m_ApplicationBuilder = new ApplicationBuilder(m_ApplicationSettings);
+        private ApplicationBase m_ApplicationInstance;
+
 
         public MainApplicationForm()
         {
             InitializeComponent();
+            m_ApplicationInstance = m_ApplicationFactory.Build<CommonPlacesApplication>(m_ApplicationSettings);
+            //m_ApplicationInstance = m_ApplicationBuilder.Build("PlacesAndNews");
 
-            //AppIds
+            //Add Facebook AppIds to ComnboBox - for debuging
             AppIdComboBox.Items.Add(m_ApplicationSettings.FbAppId);
             AppIdComboBox.Items.Add(m_ApplicationSettings.FbAppIdTest);
 
-            // Initiate Application
-            m_ApplicationBuilder.Init(FbLogout_Click);
-
-            // Add grid to form
-            Controls.Add(m_ApplicationBuilder.Grid["MainContainer"]);
-            Controls.Add(m_ApplicationBuilder.Grid["HeaderContainer"]);
-
-            //Display Header
-            m_ApplicationBuilder.Grid["HeaderContainer"].Visible = true;
+            // Add application grid to the main form
+            m_ApplicationInstance.AddAppToForm(Controls);
+            m_ApplicationInstance.OnLogOutClick(FbLogout_Click);
 
             //Main Text
             MainText.Text = "Find Your Next Place To Visit";
@@ -74,15 +73,15 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         private void StartApplication()
         {
             SignIn.Visible = false;
-            m_ApplicationBuilder.Display();
-            m_ApplicationBuilder.Update(m_FacebookModule.LogedInUser);
+            m_ApplicationInstance.Display = true;
+            m_ApplicationInstance.UpdateUser(m_FacebookModule.LogedInUser);
         }
 
         // TODO: move logout to Header
         public void FbLogout_Click(object sender, EventArgs e)
         {
             m_FacebookModule.Logout(null);
-            m_ApplicationBuilder.LogOut();
+            m_ApplicationInstance.LogOut();
             SignIn.Visible = true;
         }
 

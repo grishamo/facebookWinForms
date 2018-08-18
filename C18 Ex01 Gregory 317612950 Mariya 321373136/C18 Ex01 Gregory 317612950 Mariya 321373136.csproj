@@ -52,48 +52,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationSettings.cs" />
-    <Compile Include="ApplicationBuilder.cs" />
-    <Compile Include="Grid.cs" />
-    <Compile Include="WidgetControls\CommonPlaces.cs">
+    <Compile Include="ApplicationFactory\ApplicationSettings.cs" />
+    <Compile Include="ApplicationFactory\ApplicationFactory.cs" />
+    <Compile Include="ApplicationFactory\CommonPlacesApplication.cs" />
+    <Compile Include="ApplicationFactory\ApplicationBase.cs" />
+    <Compile Include="ApplicationFactory\WidgetControls\CommonPlaces.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\Place.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\Place.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\Place.Designer.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\Place.Designer.cs">
       <DependentUpon>Place.cs</DependentUpon>
     </Compile>
-    <Compile Include="WidgetControls\PlaceCategory.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\PlaceCategory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\PlaceCategory.Designer.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\PlaceCategory.Designer.cs">
       <DependentUpon>PlaceCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="WidgetControls\FriendsList.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\FriendsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\UserPlaces.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\UserPlaces.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\Widget.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\Widget.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\Widget.Designer.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\Widget.Designer.cs">
       <DependentUpon>Widget.cs</DependentUpon>
     </Compile>
-    <Compile Include="WidgetControls\FriendsListItem.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\FriendsListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\FriendsListItem.Designer.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\FriendsListItem.Designer.cs">
       <DependentUpon>FriendsListItem.cs</DependentUpon>
     </Compile>
     <Compile Include="FacebookModule.cs" />
-    <Compile Include="WidgetControls\Header.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\Header.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WidgetControls\Header.Designer.cs">
+    <Compile Include="ApplicationFactory\WidgetControls\Header.Designer.cs">
       <DependentUpon>Header.cs</DependentUpon>
     </Compile>
     <Compile Include="UrlRequest.cs" />
@@ -110,19 +111,19 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singelton.cs" />
-    <EmbeddedResource Include="WidgetControls\Place.resx">
+    <EmbeddedResource Include="ApplicationFactory\WidgetControls\Place.resx">
       <DependentUpon>Place.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WidgetControls\PlaceCategory.resx">
+    <EmbeddedResource Include="ApplicationFactory\WidgetControls\PlaceCategory.resx">
       <DependentUpon>PlaceCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WidgetControls\Widget.resx">
+    <EmbeddedResource Include="ApplicationFactory\WidgetControls\Widget.resx">
       <DependentUpon>Widget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WidgetControls\FriendsListItem.resx">
+    <EmbeddedResource Include="ApplicationFactory\WidgetControls\FriendsListItem.resx">
       <DependentUpon>FriendsListItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WidgetControls\Header.resx">
+    <EmbeddedResource Include="ApplicationFactory\WidgetControls\Header.resx">
       <DependentUpon>Header.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainApplicationForm.resx">
