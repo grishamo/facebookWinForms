@@ -1,7 +1,6 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading.Tasks;
 
 namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
