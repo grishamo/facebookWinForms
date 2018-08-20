@@ -7,6 +7,8 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 {
     public class ApplicationFactory
     {
+        private List<ApplicationBase> m_AllApplications = new List<ApplicationBase>();
+
         private ApplicationFactory() { }
 
         public ApplicationBase Build<T>(ApplicationSettings i_appSettings)
@@ -15,6 +17,8 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
             ApplicationBase currentApplication = new T();
             currentApplication.Settings = i_appSettings;
             currentApplication.Build();
+
+            m_AllApplications.Add(currentApplication);
 
             return currentApplication;
         }
