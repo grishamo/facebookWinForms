@@ -17,7 +17,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
         public MainApplicationForm()
         {
             InitializeComponent();
-            m_ApplicationInstance = m_ApplicationFactory.Build<CommonPlacesApplication>(m_ApplicationSettings);
+            m_ApplicationInstance = m_ApplicationFactory.Create<CommonPlacesApplication>(m_ApplicationSettings);
             //m_ApplicationInstance = m_ApplicationBuilder.Build<PlacesAndNews>("m_ApplicationSettings");
 
             //Add Facebook AppIds to ComnboBox - for debuging

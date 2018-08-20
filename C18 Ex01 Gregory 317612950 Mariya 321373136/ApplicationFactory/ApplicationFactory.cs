@@ -11,7 +11,7 @@ namespace C18_Ex01_Gregory_317612950_Mariya_321373136
 
         private ApplicationFactory() { }
 
-        public ApplicationBase Build<T>(ApplicationSettings i_appSettings)
+        public ApplicationBase Create<T>(ApplicationSettings i_appSettings)
             where T : ApplicationBase, new()
         {
             ApplicationBase currentApplication = new T();
